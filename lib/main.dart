@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:menu_float/menu_float.dart';
 import 'package:menu_float_demo/__mock__/menu_float.mock.dart';
@@ -7,7 +9,12 @@ void main() {
 }
 
 final menusOptions = productMock.map<MenuFloatOption<Product>>((e) {
-  return MenuFloatOption<Product>(label: e.name, value: e);
+  return MenuFloatOption<Product>(
+      label: e.name,
+      value: e,
+      onClick: (Product v) {
+        print(v.name);
+      });
 }).toList();
 
 class MenuFloatDemo extends StatelessWidget {
@@ -38,35 +45,37 @@ class _MenuFloatDemoPageState extends State<MenuFloatDemoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: null,
-        body: Flex(
-          direction: Axis.vertical,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            MenuFloat<Product>(
-              title: 'Hello menu float',
-              items: menusOptions,
-              child: const Text('Click me'),
-            ),
-            MenuFloat<Product>(
-              title: 'Hello menu float top',
-              top: true,
-              items: menusOptions,
-              child: const Text('Click me'),
-            ),
-            MenuFloat<Product>(
-              title: 'Hello menu float Left',
-              left: true,
-              items: menusOptions,
-              child: const Text('Click me'),
-            ),
-            MenuFloat(
-              title: 'Hello menu float Right',
-              right: true,
-              items: menusOptions,
-              child: const Text('Click me'),
-            )
-          ],
-        ));
+        body: Container(
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                MenuFloat<Product>(
+                  title: 'Hello menu float',
+                  items: menusOptions,
+                  child: const Text('Click me'),
+                ),
+                MenuFloat<Product>(
+                  title: 'Hello menu float top',
+                  top: true,
+                  items: menusOptions,
+                  child: const Text('Click me'),
+                ),
+                MenuFloat<Product>(
+                  title: 'Hello menu float Left',
+                  left: true,
+                  items: menusOptions,
+                  child: const Text('Click me'),
+                ),
+                MenuFloat(
+                  title: 'Hello menu float Right',
+                  right: true,
+                  items: menusOptions,
+                  child: const Text('Click me'),
+                )
+              ],
+            )));
   }
 }
