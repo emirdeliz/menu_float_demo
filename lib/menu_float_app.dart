@@ -69,20 +69,13 @@ class _MenuFloatAppTestPageState extends State<MenuFloatAppTestPage> {
       top: widget.y,
       child: Container(
           alignment: Alignment.center,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              MenuFloat<Product>(
-                title: 'Hello menu float',
-                items: menusOptions,
-                top: widget.top,
-                left: widget.left,
-                right: widget.right,
-                child: widget.target,
-              )
-            ],
+          child: MenuFloat<Product>(
+            title: 'Hello menu float',
+            items: menusOptions,
+            top: widget.top,
+            left: widget.left,
+            right: widget.right,
+            child: widget.target,
           )),
     );
   }
