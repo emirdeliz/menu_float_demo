@@ -14,7 +14,7 @@ void main() {
 
 Widget makeTargetButton() {
   return ElevatedButton(
-      onPressed: () => {}, child: const Text(TITLE_WIDGET_TARGET));
+      onPressed: () => {}, child: const Text(titleWidgetTarget));
 }
 
 final target = makeTargetButton();
@@ -25,26 +25,29 @@ class MenuFloatDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Container(
-        width: ,
-        child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          MenuFloatAppTest(target: target, x: 0, y: 0),
-          MenuFloatAppTest(target: target, x: 500, y: 0),
-          MenuFloatAppTest(target: target, x: 1020, y: 0),
-          MenuFloatAppTest(target: target, x: 0, y: 400),
-          MenuFloatAppTest(target: target, x: 500, y: 400),
-          MenuFloatAppTest(target: target, x: 1020, y: 400),
-          MenuFloatAppTest(target: target, x: 0, y: 800),
-          MenuFloatAppTest(target: target, x: 500, y: 800),
-          MenuFloatAppTest(target: target, x: 1020, y: 800),
-        ],
-      ),
-    ));
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Container(
+          decoration:
+              BoxDecoration(border: Border.all(color: Colors.red, width: 3)),
+          child: Stack(
+            children: [
+              // y: 0
+              MenuFloatAppTest(target: target, x: 0, y: 0),
+              MenuFloatAppTest(target: target, x: 500, y: 0),
+              MenuFloatAppTest(target: target, x: 930, y: 0),
+              // y: 400
+              MenuFloatAppTest(target: target, x: 0, y: 400),
+              MenuFloatAppTest(target: target, x: 500, y: 400),
+              MenuFloatAppTest(target: target, x: 930, y: 400),
+              // y: 730
+              MenuFloatAppTest(target: target, x: 0, y: 730),
+              MenuFloatAppTest(target: target, x: 500, y: 730),
+              MenuFloatAppTest(target: target, x: 930, y: 730),
+            ],
+          ),
+        ));
   }
 }

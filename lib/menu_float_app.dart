@@ -34,14 +34,8 @@ class MenuFloatAppTest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MenuFloatAppTestPage(
-          target: target, x: x, y: y, top: top, left: left, right: right),
-    );
+    return MenuFloatAppTestPage(
+        target: target, x: x, y: y, top: top, left: left, right: right);
   }
 }
 
@@ -70,38 +64,26 @@ class MenuFloatAppTestPage extends StatefulWidget {
 class _MenuFloatAppTestPageState extends State<MenuFloatAppTestPage> {
   @override
   Widget build(BuildContext context) {
-    return Overlay(
-      initialEntries: <OverlayEntry>[
-        OverlayEntry(
-          builder: (BuildContext context) {
-            return Stack(
-              children: <Widget>[
-                Positioned(
-                  left: widget.x,
-                  top: widget.y,
-                  child: Container(
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          MenuFloat<Product>(
-                            title: 'Hello menu float',
-                            items: menusOptions,
-                            top: widget.top,
-                            left: widget.left,
-                            right: widget.right,
-                            child: widget.target,
-                          )
-                        ],
-                      )),
-                ),
-              ],
-            );
-          },
-        ),
-      ],
+    return Positioned(
+      left: widget.x,
+      top: widget.y,
+      child: Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              MenuFloat<Product>(
+                title: 'Hello menu float',
+                items: menusOptions,
+                top: widget.top,
+                left: widget.left,
+                right: widget.right,
+                child: widget.target,
+              )
+            ],
+          )),
     );
   }
 }
