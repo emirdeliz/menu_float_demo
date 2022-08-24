@@ -33,7 +33,6 @@ class MenuFloatDemo extends StatelessWidget {
           // decoration:
           //     BoxDecoration(border: Border.all(color: Colors.red, width: 3)),
           child: Stack(
-            fit: StackFit.expand,
             children: [
               // y: 0
               MenuFloatAppTest(target: target, x: 0, y: 0),
