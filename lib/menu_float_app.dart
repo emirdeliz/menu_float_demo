@@ -51,6 +51,7 @@ class MenuFloatAppTestPage extends StatefulWidget {
   final bool right;
   final double x;
   final double y;
+  final Widget target;
 
   const MenuFloatAppTestPage(
       {Key? key,
@@ -61,7 +62,6 @@ class MenuFloatAppTestPage extends StatefulWidget {
       this.left = false,
       this.right = false})
       : super(key: key);
-  final Widget target;
 
   @override
   State<MenuFloatAppTestPage> createState() => _MenuFloatAppTestPageState();
@@ -70,28 +70,36 @@ class MenuFloatAppTestPage extends StatefulWidget {
 class _MenuFloatAppTestPageState extends State<MenuFloatAppTestPage> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Positioned(
-          left: widget.x,
-          top: widget.y,
-          child: Container(
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  MenuFloat<Product>(
-                    title: 'Hello menu float',
-                    items: menusOptions,
-                    top: widget.top,
-                    left: widget.left,
-                    right: widget.right,
-                    child: widget.target,
-                  )
-                ],
-              )),
+    return Overlay(
+      initialEntries: <OverlayEntry>[
+        OverlayEntry(
+          builder: (BuildContext context) {
+            return Stack(
+              children: <Widget>[
+                Positioned(
+                  left: widget.x,
+                  top: widget.y,
+                  child: Container(
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          MenuFloat<Product>(
+                            title: 'Hello menu float',
+                            items: menusOptions,
+                            top: widget.top,
+                            left: widget.left,
+                            right: widget.right,
+                            child: widget.target,
+                          )
+                        ],
+                      )),
+                ),
+              ],
+            );
+          },
         ),
       ],
     );
