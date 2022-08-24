@@ -1,14 +1,12 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:menu_float/menu_float.dart';
-import 'package:menu_float_demo/__mock__/menu_float.mock.dart';
 import 'package:menu_float_demo/menu_float_app.dart';
 
-const String TITLE_WIDGET_TARGET = 'Click me';
-const String TITLE_OPTION_MENU = 'Telefone';
-const double LANDSCAPE_WIDTH = 1024;
-const double LANDSCAPE_HEIGHT = 769;
+const String titleWidgetTarget = 'Click me';
+// const String titleOptionMenu = 'Telefone';
+const double landscapeWidth = 1024;
+const double landscapeHeight = 769;
 
 void main() {
   runApp(const MenuFloatDemo());
@@ -31,7 +29,22 @@ class MenuFloatDemo extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MenuFloatAppTest(target: target, x: 0, y: 0),
-    );
+      home: Container(
+        width: ,
+        child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          MenuFloatAppTest(target: target, x: 0, y: 0),
+          MenuFloatAppTest(target: target, x: 500, y: 0),
+          MenuFloatAppTest(target: target, x: 1020, y: 0),
+          MenuFloatAppTest(target: target, x: 0, y: 400),
+          MenuFloatAppTest(target: target, x: 500, y: 400),
+          MenuFloatAppTest(target: target, x: 1020, y: 400),
+          MenuFloatAppTest(target: target, x: 0, y: 800),
+          MenuFloatAppTest(target: target, x: 500, y: 800),
+          MenuFloatAppTest(target: target, x: 1020, y: 800),
+        ],
+      ),
+    ));
   }
 }
