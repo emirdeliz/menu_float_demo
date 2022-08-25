@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print, constant_identifier_names
 
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:menu_float_demo/menu_float_app.dart';
 
@@ -26,28 +28,31 @@ class MenuFloatDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: Container(
-          // decoration:
-          //     BoxDecoration(border: Border.all(color: Colors.red, width: 3)),
-          child: Stack(
-            children: [
-              // y: 0
-              MenuFloatAppTest(target: target, x: 0, y: 0),
-              MenuFloatAppTest(target: target, x: 500, y: 0),
-              MenuFloatAppTest(target: target, x: 930, y: 0),
-              // y: 400
-              MenuFloatAppTest(target: target, x: 0, y: 400),
-              MenuFloatAppTest(target: target, x: 500, y: 400),
-              MenuFloatAppTest(target: target, x: 930, y: 400),
-              // y: 730
-              MenuFloatAppTest(target: target, x: 0, y: 730),
-              MenuFloatAppTest(target: target, x: 500, y: 730),
-              MenuFloatAppTest(target: target, x: 930, y: 730),
-            ],
-          ),
-        ));
+        home: MouseRegion(
+            onHover: (event) {
+              final dx = event.localPosition.dx;
+              final dy = event.localPosition.dy;
+              // print("dx $dx dy $dy");
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black87, width: 1)),
+              child: Stack(
+                children: [
+                  // y: 0
+                  MenuFloatAppTest(target: target, x: 0, y: 0),
+                  MenuFloatAppTest(target: target, x: 500, y: 0),
+                  MenuFloatAppTest(target: target, x: 930, y: 0),
+                  // y: 400
+                  MenuFloatAppTest(target: target, x: 0, y: 400),
+                  MenuFloatAppTest(target: target, x: 500, y: 400),
+                  MenuFloatAppTest(target: target, x: 930, y: 400),
+                  // y: 730
+                  MenuFloatAppTest(target: target, x: 0, y: 730),
+                  MenuFloatAppTest(target: target, x: 500, y: 730),
+                  MenuFloatAppTest(target: target, x: 930, y: 730),
+                ],
+              ),
+            )));
   }
 }
