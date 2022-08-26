@@ -32,7 +32,7 @@ class MenuFloatDemo extends StatelessWidget {
             onHover: (event) {
               final dx = event.localPosition.dx;
               final dy = event.localPosition.dy;
-              // print("dx $dx dy $dy");
+              print("dx $dx dy $dy");
             },
             child: Container(
               decoration: BoxDecoration(
