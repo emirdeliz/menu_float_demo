@@ -15,7 +15,7 @@ final menusOptions = productMock.map<MenuFloatOption<Product>>((e) {
 }).toList();
 
 class MenuFloatAppTest extends StatelessWidget {
-  final Widget target;
+  final Widget trigger;
   final bool top;
   final bool left;
   final bool right;
@@ -24,7 +24,7 @@ class MenuFloatAppTest extends StatelessWidget {
 
   const MenuFloatAppTest({
     Key? key,
-    required this.target,
+    required this.trigger,
     this.top = false,
     this.left = false,
     this.right = false,
@@ -35,7 +35,7 @@ class MenuFloatAppTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MenuFloatAppTestPage(
-        target: target, x: x, y: y, top: top, left: left, right: right);
+        trigger: trigger, x: x, y: y, top: top, left: left, right: right);
   }
 }
 
@@ -45,11 +45,11 @@ class MenuFloatAppTestPage extends StatefulWidget {
   final bool right;
   final double x;
   final double y;
-  final Widget target;
+  final Widget trigger;
 
   const MenuFloatAppTestPage(
       {Key? key,
-      required this.target,
+      required this.trigger,
       required this.x,
       required this.y,
       this.top = false,
@@ -75,7 +75,7 @@ class _MenuFloatAppTestPageState extends State<MenuFloatAppTestPage> {
             top: widget.top,
             left: widget.left,
             right: widget.right,
-            child: widget.target,
+            child: widget.trigger,
           )),
     );
   }
