@@ -1,20 +1,16 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-				"name": "Menu Float Docker",
-				"request": "launch",
-				"type": "dart",
-				"cwd": "menu_float_demo",
-				"args": [
-					"--web-port=9191",
-					"--web-hostname=0.0.0.0",
-					"--hot",
-				],
-				"program": "lib/main.dart"
-			}
-    ]
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "CC Show Room (Docker)",
+			"cwd": "flut_base_app_show_room",
+			"request": "launch",
+			"type": "dart",
+			"args": ["--web-port=9191 --hot"],
+			"program": "lib/main.dart"
+		}
+	]
 }

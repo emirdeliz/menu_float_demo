@@ -7,7 +7,7 @@ import '__mock__/menu_float.mock.dart';
 
 final menusOptions = productMock.map<MenuFloatOption<Product>>((e) {
   return MenuFloatOption<Product>(
-      label: e.name,
+      label: Text(e.name),
       value: e,
       onClick: (Product v) {
         print(v.name);
